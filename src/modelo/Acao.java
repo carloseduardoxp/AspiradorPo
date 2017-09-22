@@ -1,10 +1,10 @@
 package modelo;
 
 public enum Acao {
-	CIMA(-1,0),
-	BAIXO(1,0),
-	DIREITA(0,1),
 	ESQUERDA(0,-1),
+	DIREITA(0,1),
+	CIMA(-1,0),
+	BAIXO(1,0),	
 	ASPIRAR(0,0);
 	
 	private Integer deslocamentoX;

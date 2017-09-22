@@ -34,7 +34,11 @@ public class Agente implements Runnable {
 		System.out.println("**********Caminho Ate Objetivo**********");
 		imprimeCaminhoAteObjetivo(estadoObjetivo);
 		System.out.println("*************************************\n\n");
-
+		System.out.println("**********Estados Visitados**********");
+		int pos = 1;
+		for (Estado estadoVisitado: busca.getEstadosVisitados()) {
+			System.out.println(imprimeEstado(estadoVisitado, pos++));
+		}
 	}
 	
 	private void imprimeCaminhoAteObjetivo(Estado estado) {
@@ -55,10 +59,24 @@ public class Agente implements Runnable {
 	
 	private String imprimeEstado(Estado estado, int pos) {
 		return  "" + pos + "\n" +
-				"Posicao: [" + estado.getPosicaoX() + ","+estado.getPosicaoY()+"]\n" +
-				"Acao: " + estado.getAcao()+ "\n\n";
+				"Posicao Agente: [" + estado.getPosicaoX() + ","+estado.getPosicaoY()+"]\n" +
+				getMatriz(estado.getStatusAmbienteClone())+"\n\n";
 	}
 
+
+	private String getMatriz(StatusAmbiente[][] statusAmbiente) {
+		StringBuilder saida = new StringBuilder("");
+		for (int i = 0; i < Agente.posX;i++) {
+			saida.append("(");
+			for (int j = 0; j < Agente.posY;j++) {
+				saida.append(statusAmbiente[i][j].name()+",");
+			}
+			saida.delete(saida.length()-1,saida.length());
+			saida.append(")\n");
+		}
+
+		return saida.toString();
+	}
 
 	public Estado getEstadoObjetivo() {
 		return estadoObjetivo;

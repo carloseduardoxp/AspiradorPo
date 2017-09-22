@@ -317,13 +317,12 @@ public class Principal extends javax.swing.JFrame implements ActionListener,Obse
 
 	@Override
 	public void notifica(String texto) {
-		txtLog.append(texto);		
+		txtLog.append(texto+"\n");		
 	}
 
 	@Override
 	public void notifica(StatusAmbiente s, Integer x, Integer y) {
-		botoes[x][y].setText(s.getCaractere()+"["+x+","+y+"]");
-		
+		botoes[x][y].setText(s.getCaractere()+"["+x+","+y+"]");		
 	}
 
 }

@@ -26,5 +26,11 @@ public class BuscaLargura extends Busca {
 		return queue.poll();
 	}
 
+	@Override
+	protected Acao[] getSequenciaAcoes() {
+		Acao[] acoes = {Acao.ESQUERDA,Acao.DIREITA,Acao.CIMA,Acao.BAIXO,Acao.ASPIRAR}; 
+		return acoes;
+	}
+
 
 }

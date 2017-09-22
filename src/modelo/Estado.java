@@ -85,7 +85,6 @@ public class Estado {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((acao == null) ? 0 : acao.hashCode());
 		result = prime * result + ((posicaoX == null) ? 0 : posicaoX.hashCode());
 		result = prime * result + ((posicaoY == null) ? 0 : posicaoY.hashCode());
 		result = prime * result + Arrays.deepHashCode(statusAmbiente);
@@ -101,8 +100,6 @@ public class Estado {
 		if (getClass() != obj.getClass())
 			return false;
 		Estado other = (Estado) obj;
-		if (acao != other.acao)
-			return false;
 		if (posicaoX == null) {
 			if (other.posicaoX != null)
 				return false;
@@ -112,6 +109,8 @@ public class Estado {
 			if (other.posicaoY != null)
 				return false;
 		} else if (!posicaoY.equals(other.posicaoY))
+			return false;
+		if (!Arrays.deepEquals(statusAmbiente, other.statusAmbiente))
 			return false;
 		return true;
 	}

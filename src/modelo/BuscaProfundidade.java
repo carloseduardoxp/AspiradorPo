@@ -24,5 +24,12 @@ public class BuscaProfundidade extends Busca {
 	protected Estado getProximoEstadoExplorar() {
 		return estados.pop();
 	}
+	
+	@Override
+	protected Acao[] getSequenciaAcoes() {
+		Acao[] acoes = {Acao.ASPIRAR,Acao.DIREITA,Acao.ESQUERDA,Acao.CIMA,Acao.BAIXO}; 
+		return acoes;
+	}
+
 
 }
